@@ -1,7 +1,7 @@
 import React from 'react';
 import {View} from "react-native";
 
-const Nearbyjobs = () => {
+const [Id] = () => {
     return (
         <View>
 
@@ -9,4 +9,4 @@ const Nearbyjobs = () => {
     );
 };
 
-export default Nearbyjobs;
+    export default [Id];
