@@ -1,7 +1,8 @@
 import {SafeAreaView, ScrollView, View} from "react-native";
 import {Stack, useRouter} from "expo-router";
 import {COLORS, icons, images, SIZES} from "../constants";
-import {Nearbyjobs, Popularjobs, ScreenHeaderBtn, Welcome} from "../components";
+import {Nearbyjobs , ScreenHeaderBtn, Welcome} from "../components";
+import PopularJobs from "../components/home/popular/PopularJobs";
 
 
 const Home = () => {
@@ -37,7 +38,7 @@ const Home = () => {
                     padding: SIZES.medium
                 }}>
                     <Welcome></Welcome>
-                    <Popularjobs></Popularjobs>
+                    <PopularJobs></PopularJobs>
                     <Nearbyjobs></Nearbyjobs>
 
                 </View>

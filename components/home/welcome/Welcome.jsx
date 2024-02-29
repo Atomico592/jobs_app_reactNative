@@ -2,9 +2,9 @@ import React, {useState} from 'react';
 import {FlatList, Image, Text, TextInput, TouchableOpacity, View} from "react-native";
 import {useRouter} from "expo-router";
 import styles from "./welcome.style";
-import {icons} from "../../../constants";
+import {icons, SIZES} from "../../../constants";
 
-const jobTypes = ["Full-time", "Part-time", "Contractor"]
+const jobTypes = ["Full-time", "Part-time", "Contractor", "test", "test2"]
 
 const Welcome = () => {
     const router = useRouter();
@@ -48,6 +48,10 @@ const Welcome = () => {
                             <Text style={styles.tabText(activeJobType, item)}>{item}</Text>
                         </TouchableOpacity>
                     )}
+                    keyExtractor={item => item}
+                    contentContainerStyle={{columnGap: SIZES.small}}
+                    horizontal
+                    showsHorizontalScrollIndicator={false}
                 />
             </View>
         </View>
