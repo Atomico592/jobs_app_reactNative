@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useCallback, useState} from 'react';
 import {ActivityIndicator, RefreshControl, SafeAreaView, ScrollView, View, Text} from "react-native";
 import {Stack, useLocalSearchParams, useRouter} from "expo-router";
 import {Company, JobAbout,  JobTabs, ScreenHeaderBtn, Specifics} from "../../components";
@@ -14,9 +14,11 @@ const JobDetails = () => {
     const router = useRouter();
     const {data, isLoading, error, reFetch} = useFetch(`job-details`, {job_id: id});
     
-    const onRefresh = () => {
-                reFetch()
-    };
+    const onRefresh = useCallback(() => {
+        setRefreshing(true);
+        reFetch();
+        setRefreshing(false)
+    }, []);
 
     const displayTabContent = () => {
         switch (activeTab) {
