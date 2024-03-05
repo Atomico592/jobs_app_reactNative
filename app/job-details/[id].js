@@ -1,9 +1,10 @@
 import React, {useState} from 'react';
 import {ActivityIndicator, RefreshControl, SafeAreaView, ScrollView, View, Text} from "react-native";
 import {Stack, useLocalSearchParams, useRouter} from "expo-router";
-import {Company, JobTabs, ScreenHeaderBtn, Specifics} from "../../components";
+import {Company, JobAbout,  JobTabs, ScreenHeaderBtn, Specifics} from "../../components";
 import useFetch from "../../hook/useFetch";
 import {COLORS, icons, SIZES} from "../../constants";
+import JobFooter from "../../components/jobdetails/footer/JobFooter";
 
 const tabs = ["About","Qualifications","Responsibilities"]
 const JobDetails = () => {
@@ -25,11 +26,14 @@ const JobDetails = () => {
                         points={data[0].job_highlights?.Qualifications ?? ["N/A"]}
                     />
             case "About":
-
-                break;
+                    return <JobAbout
+                        info={data[0].job_description ?? "No data provided"}
+                    />
             case "Responsibilities":
-
-                break;
+                return <Specifics
+                    title="Responsibilities"
+                    points={data[0].job_highlights?.Responsibilities ?? ["N/A"]}
+                />
             default:
                 break;
         }
@@ -85,6 +89,7 @@ const JobDetails = () => {
                         </View>
                     )}
                 </ScrollView>
+                <JobFooter url={data[0]?.job_google_link ?? 'https://careers.google.com/jobs/results'}></JobFooter>
             </>
         </SafeAreaView>
     );

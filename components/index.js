@@ -8,8 +8,8 @@ import Popularjobs from "./home/popular/PopularJobs";
 // job details screen
 import Company from "./jobdetails/company/Company";
 import { default as JobTabs } from "./jobdetails/tabs/Tabs";
-import { default as JobAbout } from "./jobdetails/about/About";
-import { default as JobFooter } from "./jobdetails/footer/Footer";
+import { default as JobAbout } from "./jobdetails/JobAbout/JobAbout";
+import { default as JobFooter } from "./jobdetails/footer/JobFooter";
 import Specifics from "./jobdetails/specifics/Specifics";
 
 // common
